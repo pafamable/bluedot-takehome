@@ -53,6 +53,8 @@ https://medium.com/@chris_42047/geo-location-tracking-in-android-with-kotlin-f4e
 Android Tutorial On Location Update With LiveData -  
 https://proandroiddev.com/android-tutorial-on-location-update-with-livedata-774f8fcc9f15  
 #### GitHub Repositories
+While-in-use Location Codelab Repository -  
+https://github.com/googlecodelabs/while-in-use-location  
 My Plant Diary -  
 https://github.com/discospiff/MyPlantDiaryQ  
 #### Tutorials
