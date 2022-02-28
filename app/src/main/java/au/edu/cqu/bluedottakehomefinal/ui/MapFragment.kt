@@ -19,6 +19,7 @@ import au.edu.cqu.bluedottakehomefinal.viewmodel.MapViewModel
 import au.edu.cqu.bluedottakehomefinal.viewmodel.MapViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -55,16 +56,17 @@ class MapFragment : Fragment() {
         val mapFragment =
             childFragmentManager.findFragmentById((R.id.mapview)) as SupportMapFragment
 
-        mapFragment.getMapAsync {
-            map = it
+        mapFragment.getMapAsync { googleMap ->
+            Log.d(TAG, "map has been initialized")
+            map = googleMap
+            checkForLocationPermissions()
         }
-
-        checkForLocationPermissions()
 
         return binding.root
     }
 
     private fun checkForLocationPermissions() {
+        Log.d(TAG, "checkForLocationPermissions is called")
         when {
             // if the application has the permissions to access GPS location data,
             // the application will proceed as intended behaviour
@@ -116,9 +118,9 @@ class MapFragment : Fragment() {
         }
     }
 
-
     private fun requestLocationUpdates() {
         Log.d(TAG, "requestLocationUpdates is called")
+
         var previousPosition = LatLng(0.0, 0.0)
 
         viewModel.getLocationLiveData().observe(viewLifecycleOwner, Observer {
@@ -173,7 +175,7 @@ class MapFragment : Fragment() {
         })
     }
 
-    // method for calculating the distance between two points on a map factoring the Earth's radius
+    // method for calculating the distance between two points on a map factoring in the Earth's radius
     private fun calculateDistance(previousPosition: LatLng, currentPosition: LatLng): Double =
         SphericalUtil.computeDistanceBetween(previousPosition, currentPosition)
 }
