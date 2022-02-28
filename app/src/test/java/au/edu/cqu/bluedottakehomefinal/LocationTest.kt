@@ -87,7 +87,7 @@ class LocationTest {
         assertEquals(position1, position2)
     }
 
-    // method for calculating the distance between two points on a map factoring the Earth's radius
+    // method for calculating the distance between two points on a map factoring in the Earth's radius
     private fun calculateDistance(previousPosition: LatLng, currentPosition: LatLng): Double
             = SphericalUtil.computeDistanceBetween(previousPosition, currentPosition)
 }
