@@ -13,6 +13,7 @@ class LocationTest {
 
     private val TEN_METERS = 10.0
 
+    // this test case will check if calculateDistance() method works as intended
     @Test
     fun distanceChecker() {
         val latitude1 = -37.8190947
@@ -32,6 +33,7 @@ class LocationTest {
         assertEquals(EXPECTED_DISTANCE, distance)
     }
 
+    // this test case will check if the distance between the two positions are greater than 10
     @Test
     fun distanceMoreThanTen() {
         val latitude1 = -37.8306428
@@ -50,6 +52,7 @@ class LocationTest {
         assertTrue(distance >= TEN_METERS)
     }
 
+    // this test case will check if the distance between the two positions are less than 10
     @Test
     fun distanceLessThanTen() {
         val latitude1 = -37.8323511
@@ -68,6 +71,8 @@ class LocationTest {
         assertTrue(distance < TEN_METERS)
     }
 
+    // this test case will check if the two positions are equal to each other
+    // (i.e. when the GPS position has not changed for a while)
     @Test
     fun locationNotChanged() {
         val latitude1 = -37.8321004
@@ -82,6 +87,7 @@ class LocationTest {
         assertEquals(position1, position2)
     }
 
+    // method for calculating the distance between two points on a map factoring the Earth's radius
     private fun calculateDistance(previousPosition: LatLng, currentPosition: LatLng): Double
             = SphericalUtil.computeDistanceBetween(previousPosition, currentPosition)
 }
