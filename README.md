@@ -4,7 +4,7 @@ I was required to develop an Android application that would track the device loc
 
 ## How to run the project
 ### For advanced users/developers
-NOTE: This repository does not include a Google Map API Key. Since this project is using Google Maps SDK for Google Map view, you have to supply your own Google Map API Key in either the AndroidManifest.xml file or local.properties file in order for the project to run.
+NOTE: This repository does not include a Google Maps API Key. Since this project is using Google Maps SDK for Google Map view, you have to supply your own Google Map API Key in either the AndroidManifest.xml file or local.properties file in order for the project to run.
 1. You can clone this repository using the repository's link 'https://github.com/pafamable/bluedot-takehome' on your own Android Studio in your development machines. Alternatively, you can download the project as a ZIP file.
 2. Once the project has been cloned or downloaded off of GitHub, build the project yourself from the ground up and have it run on your test emulators and/or test devices.
 3. Run the application on your test emulators and/or test devices. When prompted, allow (or disallow to test the behaviour of the application when permissions are disallowed, it is up to you) the permissions needed to run the application.
