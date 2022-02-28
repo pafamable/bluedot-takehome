@@ -44,6 +44,7 @@ class LocationLiveData(context: Context) : LiveData<LocationCoordinates>() {
 
     override fun onInactive() {
         super.onInactive()
+        Log.d(TAG, "onInactive is called")
         // turn off location updates
         fusedLocationClient.removeLocationUpdates(locationCallback)
     }
@@ -51,6 +52,7 @@ class LocationLiveData(context: Context) : LiveData<LocationCoordinates>() {
     @SuppressLint("MissingPermission")
     override fun onActive() {
         super.onActive()
+        Log.d(TAG, "onActive is called")
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location: Location? ->
                 location?.also {
